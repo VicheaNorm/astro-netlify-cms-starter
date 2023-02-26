@@ -1,0 +1,124 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import HeroImageLeft from "../../components/HeroImageLeft.astro";
+import HeroImageRight from "../../components/HeroImageRight.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={"World Record"} color={"002C4D"} />
+    <main class="patten bg-wrc text-white">
+      <div class="flex justify-center pt-14">
+        <img
+          src="https://www.guinnessworldrecords.com/images/logo.png"
+          alt=""
+          width="130"
+        />
+      </div>
+      <div class="py-10">
+        <h5 class="text-center">Welcome to Guinness World Records!</h5>
+        <center>
+          <p class="text-center max-w-3xl">
+            We are the global authority on all things record-breaking, with
+            offices in UK, US, China, Japan, and UAE, as well as our official
+            adjudicators who verify records all over the world. Here you can
+            discover everything about us, from our history to how you can join
+            GWR.
+          </p>
+        </center>
+      </div>
+      <div class="h-screen">
+        <div class="flex justify-center items-center">
+          <img src="/btg-logo.png" alt="" width="400" />
+        </div>
+        <center>
+          <p class="max-w-5xl text-justify">
+            យុទ្ធនាការ <span class="font-medium">#BeyondTheGames</span> តែងតែទទួលបានការគាំទ្រ
+            និងការចូលរួមពីមហាជនគ្រប់ស្រទាប់វណ្ណៈ និងគ្រប់វ័យ។ យុទ្ធនាការ <span
+              class="font-medium">#BeyondTheGames</span
+            > មានសេចក្ដីសោមនស្សរីករាយយ៉ាងខ្លាំង ដែលក្រសួងអប់រំ យុវជន និងកីឡា បានរៀបចំព្រឹត្តិការណ៍ការប្រកួតស្នាដៃគំនូរកុមារដើម្បីជាការគាំទ្រដល់យុទ្ធនាការ
+            <span class="font-medium">#BeyondTheGames</span> ក្រោមមូលបទ <span
+              class="font-medium">"បេះដូងលោតក្នុងចង្វាក់តែមួយ"</span
+            >។ នេះជាការចូលរួមយ៉ាងមានអត្ថន័យ ក្នុងដំណើរឆ្ពោះទៅកាន់<span
+              class="font-medium"
+              >ព្រឹត្តិការណ៍ស៊ីហ្គេម និងអាស៊ានប៉ារ៉ាហ្គេម</span
+            > ដែលយើងអាចដាក់បង្ហាញពិភពលោកឱ្យបានឃើញពីទេពកោសល្យ និងភាពច្នៃប្រឌិតរបស់កុមារកម្ពុជា។
+          </p>
+        </center>
+      </div>
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
+      <div class="pb-10 pt-24">
+        <center>
+          <img src="/10year.png" alt="" width="200" />
+          <h1 class="pt-14 pb-8 text-6xl font-medium text-teal-600">
+            កម្មវិធីនៃ អង្គរសង្គ្រានឆ្នាំ២០២៣
+          </h1>
+          <p class="text-base max-w-4xl">
+            ព្រឹត្តិការណ៍អង្គរសង្ក្រាន្តនៅក្នុងឆ្នាំនេះនឹងមានលក្ខណៈកាន់តែ
+            លេចធ្លោ កាន់តែធំជាងបណ្ដាឆ្នាំមុនៗ ដោយមានការប្រមូលផ្ដុំនូវកម្មវិធី
+            ព្រឹត្តិការណ៍ និងតួអង្គនិមិត្តរូបសំខាន់ៗ
+            (តាមឆ្នាំនីមួយៗនៃអង្គរសង្រ្កាន្ត) ក៏ដូចជាវត្ថុពិសេសៗ (វត្ថុយក្ស)
+            មកជួបជុំគ្នា ដែលឆ្លុះបញ្ចាំងតាមរយៈកម្មវិធីចំនួន៤៤កម្មវិធី
+            (កើនចំនួន៣៣ កម្មវិធីប្រៀបធៀបក្នុងឆ្នាំ២០១៣) នៅតាមទីតាំង ឬតំបន់ចំនួន
+            ៦ ផ្សេងគ្នា (កើនចំនួន៤ទីតាំង ប្រៀបធៀបក្នុងឆ្នាំ២០១៣)
+            និងមានកំណើនយុវជនស្ម័គ្រចិត្តជាច្រើនចូលរួម (២៣២៤នាក់ នៅឆ្នាំ២០១៣
+            និង៤២៤៩នាក់ នៅឆ្នាំ២០១៨)។
+          </p>
+          <div class="space-x-10 py-10">
+            <button class="py-3 px-10 rounded-md bg-orange-400 text-white"
+              >អានបន្ថែម</button
+            >
+            <button
+              class="py-3 px-10 rounded-md border border-orange-400 text-orange-500"
+              >អានបន្ថែម</button
+            >
+          </div>
+        </center>
+      </div>
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
+      <div class="">
+        <HeroImageRight
+          urlImg="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/323283402_576327644534242_1356103382457147828_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeEGZmBcT-Jw_oAJZoN_yJDv3nRW8z5KxS7edFbzPkrFLrNH8VpuiWXRZCf3Mq-NM7Kv0hjFKAt-vRrOuUBwmqPZ&_nc_ohc=bdPrtMp0cykAX8SPVDd&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfBsZE-YAVzcSchvXvCB3e_YTwBEfDVyOXR8Hl0-FAmWkw&oe=63FBA3FD"
+          title="អន្សមយក្សអង្គរសង្ក្រាន្ត បានបំបែកកំណត់ត្រាពិភពលោក Guinness World Records"
+          description="ព្រឹត្តិការណ៍អង្គរសង្ក្រាន្តនៅក្នុងឆ្នាំនេះនឹងមានលក្ខណៈកាន់តែ លេចធ្លោ កាន់តែធំជាងបណ្ដាឆ្នាំមុនៗ ដោយមានការប្រមូលផ្ដុំនូវកម្មវិធី ព្រឹត្តិការណ៍ និងតួអង្គនិមិត្តរូបសំខាន់ៗ (តាមឆ្នាំនីមួយៗនៃអង្គរសង្រ្កាន្ត) ក៏ដូចជាវត្ថុពិសេសៗ (វត្ថុយក្ស) មកជួបជុំគ្នា ដែលឆ្លុះបញ្ចាំងតាមរយៈកម្មវិធីចំនួន៤៤កម្មវិធី (កើនចំនួន៣៣ កម្មវិធីប្រៀបធៀបក្នុងឆ្នាំ២០១៣) នៅតាមទីតាំង ឬតំបន់ចំនួន ៦ ផ្សេងគ្នា (កើនចំនួន៤ទីតាំង ប្រៀបធៀបក្នុងឆ្នាំ២០១៣) និងមានកំណើនយុវជនស្ម័គ្រចិត្តជាច្រើនចូលរួម (២៣២៤នាក់ នៅឆ្នាំ២០១៣ និង៤២៤៩នាក់ នៅឆ្នាំ២០១៨)។"
+        />
+        <HeroImageLeft
+          urlImg="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/323283402_576327644534242_1356103382457147828_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeEGZmBcT-Jw_oAJZoN_yJDv3nRW8z5KxS7edFbzPkrFLrNH8VpuiWXRZCf3Mq-NM7Kv0hjFKAt-vRrOuUBwmqPZ&_nc_ohc=bdPrtMp0cykAX8SPVDd&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfBsZE-YAVzcSchvXvCB3e_YTwBEfDVyOXR8Hl0-FAmWkw&oe=63FBA3FD"
+          title="អន្សមយក្សអង្គរសង្ក្រាន្ត បានបំបែកកំណត់ត្រាពិភពលោក Guinness World Records"
+          description="ព្រឹត្តិការណ៍អង្គរសង្ក្រាន្តនៅក្នុងឆ្នាំនេះនឹងមានលក្ខណៈកាន់តែ លេចធ្លោ កាន់តែធំជាងបណ្ដាឆ្នាំមុនៗ ដោយមានការប្រមូលផ្ដុំនូវកម្មវិធី ព្រឹត្តិការណ៍ និងតួអង្គនិមិត្តរូបសំខាន់ៗ (តាមឆ្នាំនីមួយៗនៃអង្គរសង្រ្កាន្ត) ក៏ដូចជាវត្ថុពិសេសៗ (វត្ថុយក្ស) មកជួបជុំគ្នា ដែលឆ្លុះបញ្ចាំងតាមរយៈកម្មវិធីចំនួន៤៤កម្មវិធី (កើនចំនួន៣៣ កម្មវិធីប្រៀបធៀបក្នុងឆ្នាំ២០១៣) នៅតាមទីតាំង ឬតំបន់ចំនួន ៦ ផ្សេងគ្នា (កើនចំនួន៤ទីតាំង ប្រៀបធៀបក្នុងឆ្នាំ២០១៣) និងមានកំណើនយុវជនស្ម័គ្រចិត្តជាច្រើនចូលរួម (២៣២៤នាក់ នៅឆ្នាំ២០១៣ និង៤២៤៩នាក់ នៅឆ្នាំ២០១៨)។"
+        />
+      </div>
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
+      <div class="py-16">
+        <h1 class="text-center text-5xl text-teal-500 font-semibold">
+          កម្រាងរូបភាពសកម្មភាពអង្គរសង្គ្រាន
+        </h1>
+        <center>
+          <img
+            src="https://www.howardluksmd.com/wp-content/uploads/2021/10/featured-image-placeholder-728x404.jpg"
+            class="max-w-full m-auto md:max-w-3xl pt-14"
+          />
+        </center>
+      </div>
+    </main>
+    <Footer />
+    <script language="JavaScript" Type="text/javascript">
+      function popupMsg(theMsg) {
+        alert(theMsg);
+      }
+    </script>
+  </body>
+</html>

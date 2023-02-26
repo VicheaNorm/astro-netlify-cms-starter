@@ -1,3 +1,3 @@
 export const SITE = {
-  title: 'Astro Blog with Netlify CMS',
+  title: "ព្រឹត្តិការណ៍អង្គរសង្ក្រាន្ត",
 };

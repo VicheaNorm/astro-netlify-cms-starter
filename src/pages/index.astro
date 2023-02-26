@@ -3,24 +3,30 @@
 import BaseHead from "../components/BaseHead.astro";
 import BlogHeader from "../components/BlogHeader.astro";
 import BlogPostPreview from "../components/BlogPostPreview.astro";
-import { SITE } from "../config";
+import CustomCarousel from "../components/CustomCarousel.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import HeroImageLeft from "../components/HeroImageLeft.astro";
+import HeroImageRight from "../components/HeroImageRight.astro";
+import NewNavBar from "../components/NewNavBar.astro";
+import ProgramCard from "../components/ProgramCard.astro";
+import Testimonials from "../components/Testimonials.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
-let { title } = SITE;
-let description = "The perfect starter for your perfect blog.";
-let permalink = "https://example.com/";
 
 // Data Fetching: List all Markdown posts in the repo.
 
-let allPosts = await Astro.glob("./posts/*.md");
-allPosts = allPosts.sort(
-  (a, b) =>
-    new Date(b.frontmatter.publishDate).valueOf() -
-    new Date(a.frontmatter.publishDate).valueOf()
-);
+// let allPosts = await Astro.glob("./posts/*.md");
+// allPosts = allPosts.sort(
+//   (a, b) =>
+//     new Date(b.frontmatter.publishDate).valueOf() -
+//     new Date(a.frontmatter.publishDate).valueOf()
+// );
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -28,63 +34,209 @@ allPosts = allPosts.sort(
 
 <html lang="en">
   <head>
-    <BaseHead {title} {description} {permalink} />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
+  </head><body>
+    <Header title={SITE_TITLE} />
+    <!-- <NewNavBar /> -->
 
-    <style>
-      header {
-        width: 100%;
-        height: 100%;
-        background-color: var(--theme-bg-offset);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    <main class="patten">
+      <CustomCarousel />
+      <!-- HeroCard -->
+      <div class="flex justify-center">
+        <div
+          class="relative z-20 flex items-center overflow-hidden py-10 max-w-8xl"
+        >
+          <center>
+            <div class="container relative flex px-6 mx-auto patten-right">
+              <div class="relative z-20 flex flex-col sm:w-2/3 lg:w-2/5 ml-20">
+                <h1
+                  class="pt-14 flex flex-col font-semibold leading-normal text-teal-500 uppercase font-bebas-neue text-4xl"
+                >
+                  ព្រឹត្តិការណ៍អង្គរសង្ក្រាន្ដ ឆ្នាំ២០២៣ ក្រោមប្រធានបទ
+                  «ក្ដីស្រមៃ និងក្ដីសង្ឃឹម»
+                </h1>
+                <p class="text-sm text-gray-500 sm:text-base pt-6 text-left">
+                  បុណ្យចូលឆ្នាំប្រពៃណីខ្មែរយើងនឹងឈានចូលមកដល់នៅពេលខាងមុខនេះ
+                  ពោលនៅថ្ងៃទី១៤-១៦ ខែមេសា ឆ្នាំ២០១៨។ បើតាមការឱ្យដឹងពីលោក សុខ
+                  សប្បាយណា ប្រធានលេខាធិការដ្ឋាន ក្រុមប្រតិបត្តិ
+                  នៃព្រឹត្តិការណ៍អង្គរសង្ក្រាន្ដឱ្យដឹងថា
+                  សង្ក្រាន្ដឆ្នាំនេះនឹងមានការរៀបចំកម្មវិធីកម្សាន្ដពិសេសៗរហូតដល់៣៣មុខ
+                  រួមមានការលេងល្បែងកំសាន្ដនានាជាច្រើន
+                  ដើម្បីធ្វើឱ្យកម្មវិធីកាន់តែសប្បាយរីករាយ។
+                </p>
+                <div class="space-x-10 py-6">
+                  <button class="py-3 px-12 rounded-md bg-orange-400 text-white"
+                    >ព័ត៌មានលម្អិត</button
+                  >
+                  <button
+                    class="py-3 px-12 rounded-md border shadow-md text-orange-500 hover:bg-orange-400"
+                    >អានបន្ថែម</button
+                  >
+                </div>
+              </div>
+              <div class="relative hidden sm:block sm:w-1/3 lg:w-3/5">
+                <img
+                  src="assets/10year.svg"
+                  class="max-w-full m-auto md:max-w-3xl"
+                />
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
+      <!-- End HeroCard -->
 
-      .content {
-        margin-top: 4rem;
-        margin-bottom: 8rem;
-      }
+      <!-- Program Section -->
+      <div class="">
+        <ProgramCard />
+        <center class="py-10">
+          <button class="py-2 px-10 rounded-md bg-orange-400 text-white"
+            >មើលទាំងអស់</button
+          >
+        </center>
+      </div>
+      <!-- End Program Section -->
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
+      <!-- Sponsor Section -->
+      <div class="">
+        <h1
+          class="pt-14 pb-8 text-4xl md:text-5xl font-medium text-teal-500 text-center"
+        >
+          សហការ និងគាំទ្រដោយ
+        </h1>
+        <center>
+          <div class="max-w-5xl grid grid-cols-5 pt-10 pb-24">
+            <img
+              src="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/317243319_504797425024684_4035701173480771894_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHPuqClXTZTOwdinFDmUMbyc4axWtwOjUVzhrFa3A6NRX6RdzwV6aq8XiZ4HA3dnIr3zK-BX1ohk1E3OVYvUgE3&_nc_ohc=_Sbpav_IHBYAX9DiQtY&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfDoQ_8VsCvhkaa6mAc8UsORj9OZ1_XfaVszOZmfMG_XjA&oe=63FA03C2"
+              alt=""
+              width="130"
+            />
 
-      .content :global(main > * + *) {
-        margin-top: 1rem;
-      }
+            <img
+              src="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/317243319_504797425024684_4035701173480771894_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHPuqClXTZTOwdinFDmUMbyc4axWtwOjUVzhrFa3A6NRX6RdzwV6aq8XiZ4HA3dnIr3zK-BX1ohk1E3OVYvUgE3&_nc_ohc=_Sbpav_IHBYAX9DiQtY&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfDoQ_8VsCvhkaa6mAc8UsORj9OZ1_XfaVszOZmfMG_XjA&oe=63FA03C2"
+              alt=""
+              width="130"
+            />
+            <img
+              src="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/317243319_504797425024684_4035701173480771894_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHPuqClXTZTOwdinFDmUMbyc4axWtwOjUVzhrFa3A6NRX6RdzwV6aq8XiZ4HA3dnIr3zK-BX1ohk1E3OVYvUgE3&_nc_ohc=_Sbpav_IHBYAX9DiQtY&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfDoQ_8VsCvhkaa6mAc8UsORj9OZ1_XfaVszOZmfMG_XjA&oe=63FA03C2"
+              alt=""
+              width="130"
+            />
+            <img
+              src="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/317243319_504797425024684_4035701173480771894_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHPuqClXTZTOwdinFDmUMbyc4axWtwOjUVzhrFa3A6NRX6RdzwV6aq8XiZ4HA3dnIr3zK-BX1ohk1E3OVYvUgE3&_nc_ohc=_Sbpav_IHBYAX9DiQtY&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfDoQ_8VsCvhkaa6mAc8UsORj9OZ1_XfaVszOZmfMG_XjA&oe=63FA03C2"
+              alt=""
+              width="130"
+            />
+            <img
+              src="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/317243319_504797425024684_4035701173480771894_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHPuqClXTZTOwdinFDmUMbyc4axWtwOjUVzhrFa3A6NRX6RdzwV6aq8XiZ4HA3dnIr3zK-BX1ohk1E3OVYvUgE3&_nc_ohc=_Sbpav_IHBYAX9DiQtY&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfDoQ_8VsCvhkaa6mAc8UsORj9OZ1_XfaVszOZmfMG_XjA&oe=63FA03C2"
+              alt=""
+              width="130"
+            />
+          </div>
+        </center>
+      </div>
 
-      .intro {
-        padding-bottom: 4rem;
-        margin-bottom: 2rem;
-        border-bottom: 4px solid var(--theme-divider);
-      }
+      <!-- End Sponsort Section -->
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
 
-      .intro > * {
-        margin: 0;
-      }
+      <!-- Testimonials Section -->
+      <div class="">
+        <h1
+          class="pt-14 pb-8 text-4xl md:text-5xl font-medium text-teal-500 text-center"
+        >
+          ការបង្ហាញចំណាប់អារម្មណ៍ក្នុងព្រឹត្តិការណ៍អង្គរសង្គ្រាន
+        </h1>
+        <center>
+          <div class="max-w-5xl grid grid-cols-3 pb-24">
+            <Testimonials />
+            <Testimonials />
+            <Testimonials />
+          </div>
+        </center>
+      </div>
 
-      .latest {
-        font-size: 2.5rem;
-        font-weight: 700;
-      }
-
-      footer {
-        text-align: center;
-      }
-    </style>
-  </head>
-
-  <body>
-    <BlogHeader />
-    <div class="wrapper">
-      <main class="content">
-        <section class="intro">
-          <h1 class="latest">{title}</h1>
-          <p>{description}</p>
-        </section>
-        <section aria-label="Blog post list">
-          {allPosts.map((p) => <BlogPostPreview post={p} />)}
-        </section>
-      </main>
-      <footer>
-        <a href="/admin">Admin Dashboard 🔐</a>
-      </footer>
-    </div>
+      <!-- End Testimonials Section -->
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
+      <!-- World Record Section -->
+      <div class="">
+        <h1
+          class="pt-14 pb-8 text-4xl md:text-5xl font-medium text-teal-500 text-center"
+        >
+          បំបែកកំណត់ត្រាពិភពលោក
+        </h1>
+        <div class="">
+          <HeroImageLeft
+            urlImg="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/323283402_576327644534242_1356103382457147828_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeEGZmBcT-Jw_oAJZoN_yJDv3nRW8z5KxS7edFbzPkrFLrNH8VpuiWXRZCf3Mq-NM7Kv0hjFKAt-vRrOuUBwmqPZ&_nc_ohc=bdPrtMp0cykAX8SPVDd&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfBsZE-YAVzcSchvXvCB3e_YTwBEfDVyOXR8Hl0-FAmWkw&oe=63FBA3FD"
+            title="អន្សមយក្សអង្គរសង្ក្រាន្ត បានបំបែកកំណត់ត្រាពិភពលោក Guinness World Records"
+            description="ព្រឹត្តិការណ៍អង្គរសង្ក្រាន្តនៅក្នុងឆ្នាំនេះនឹងមានលក្ខណៈកាន់តែ លេចធ្លោ កាន់តែធំជាងបណ្ដាឆ្នាំមុនៗ ដោយមានការប្រមូលផ្ដុំនូវកម្មវិធី ព្រឹត្តិការណ៍ និងតួអង្គនិមិត្តរូបសំខាន់ៗ (តាមឆ្នាំនីមួយៗនៃអង្គរសង្រ្កាន្ត) ក៏ដូចជាវត្ថុពិសេសៗ (វត្ថុយក្ស) មកជួបជុំគ្នា ដែលឆ្លុះបញ្ចាំងតាមរយៈកម្មវិធីចំនួន៤៤កម្មវិធី (កើនចំនួន៣៣ កម្មវិធីប្រៀបធៀបក្នុងឆ្នាំ២០១៣) នៅតាមទីតាំង ឬតំបន់ចំនួន ៦ ផ្សេងគ្នា (កើនចំនួន៤ទីតាំង ប្រៀបធៀបក្នុងឆ្នាំ២០១៣) និងមានកំណើនយុវជនស្ម័គ្រចិត្តជាច្រើនចូលរួម (២៣២៤នាក់ នៅឆ្នាំ២០១៣ និង៤២៤៩នាក់ នៅឆ្នាំ២០១៨)។"
+          />
+          <HeroImageRight
+            urlImg="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/329644418_1377320516348122_3588884596442142510_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGqXoJljuSu5giPC-EuJuvEJ3HphaKR5IEncemFopHkgR5kuDgn9tY6Qz9XMbDcmwxIjyNyh65Ia3rB2Vq9HSIc&_nc_ohc=lwBI005vRh4AX9_N9Na&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfCmqZcag3DpBAXSexy4rDv9W8bIWTdv33z7P5_l85OJZg&oe=63FB50FB"
+            title="អន្សមយក្សអង្គរសង្ក្រាន្ត បានបំបែកកំណត់ត្រាពិភពលោក Guinness World Records"
+            description="ព្រឹត្តិការណ៍អង្គរសង្ក្រាន្តនៅក្នុងឆ្នាំនេះនឹងមានលក្ខណៈកាន់តែ លេចធ្លោ កាន់តែធំជាងបណ្ដាឆ្នាំមុនៗ ដោយមានការប្រមូលផ្ដុំនូវកម្មវិធី ព្រឹត្តិការណ៍ និងតួអង្គនិមិត្តរូបសំខាន់ៗ (តាមឆ្នាំនីមួយៗនៃអង្គរសង្រ្កាន្ត) ក៏ដូចជាវត្ថុពិសេសៗ (វត្ថុយក្ស) មកជួបជុំគ្នា ដែលឆ្លុះបញ្ចាំងតាមរយៈកម្មវិធីចំនួន៤៤កម្មវិធី (កើនចំនួន៣៣ កម្មវិធីប្រៀបធៀបក្នុងឆ្នាំ២០១៣) នៅតាមទីតាំង ឬតំបន់ចំនួន ៦ ផ្សេងគ្នា (កើនចំនួន៤ទីតាំង ប្រៀបធៀបក្នុងឆ្នាំ២០១៣) និងមានកំណើនយុវជនស្ម័គ្រចិត្តជាច្រើនចូលរួម (២៣២៤នាក់ នៅឆ្នាំ២០១៣ និង៤២៤៩នាក់ នៅឆ្នាំ២០១៨)។"
+          />
+        </div>
+      </div>
+      <!-- End World Record Section -->
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
+      <!-- Blog Section -->
+      <div class="">
+        <h1
+          class="pt-14 pb-8 text-4xl md:text-5xl font-medium text-teal-500 text-center"
+        >
+          ប្លុកប្រចាំថ្ងៃ
+        </h1>
+        <center>
+          <div
+            class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3 py-10 max-w-5xl"
+          >
+            <!-- {
+                allPosts.map((post) => (
+                  <div class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <a href={`/blog/${post.slug}/`} class="block w-full h-full">
+                      <img
+                        alt="blog photo"
+                        src={post.data.heroImage}
+                        class="object-cover w-full max-h-40"
+                      />
+                      <div class="w-full p-4 bg-white ">
+                        <p class="mb-2 text-xl font-medium text-teal-500 text-left">
+                          {post.data.title}
+                        </p>
+                        <p class="font-light text-gray-400 dark:text-gray-300 text-md" />
+                        <div class="flex items-center mt-4">
+                          <div class="flex flex-col justify-between ml-1 text-sm">
+                            <p class="text-orange-400">
+                              <FormattedDate date={post.data.pubDate} />
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                ))
+              } -->
+          </div>
+        </center>
+      </div>
+      <!-- End Blog Section -->
+      <center>
+        <hr class="max-w-xl pt-2 my-2" />
+      </center>
+    </main>
+    <Footer />
   </body>
 </html>
