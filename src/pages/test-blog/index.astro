@@ -1,0 +1,61 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { SITE } from "../../config";
+
+let { title } = SITE;
+let description = "The perfect starter for your perfect blog.";
+let permalink = "https://example.com/";
+
+// Import multiple files with Astro.glob
+const posts = await Astro.glob("../posts/*.md");
+// console.log(posts);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main
+      class="h-[750px] p-0 rounded-md patten"
+    >
+      <center>
+        <h1 class="text-3xl font-semibold">Blog page</h1></center> 
+        <center>
+            <div
+              class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3 py-10 max-w-5xl"
+            >
+      {
+        posts.map((post) => (
+          <div class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer">
+            <a href={} class="block w-full h-full">
+              <img
+                alt="blog photo"
+                src={""}
+                class="object-cover w-full max-h-40"
+              />
+              <div class="w-full p-4 bg-white ">
+                <p class="mb-2 text-xl font-medium text-teal-500 text-left">
+                  {}
+                </p>
+                <p class="font-light text-gray-400 dark:text-gray-300 text-md" />
+                <div class="flex items-center mt-4">
+                  <div class="flex flex-col justify-between ml-1 text-sm">
+                    <p class="text-orange-400">{""}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))
+      }
+      </div>
+      </center>
+
+    </main>
+  </body>
+</html>

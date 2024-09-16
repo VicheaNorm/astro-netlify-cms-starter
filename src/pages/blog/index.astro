@@ -1,0 +1,46 @@
+---
+// Component Imports
+import NewNavBar from "../../components/NewNavBar.astro";
+import BaseHead from "../../components/BaseHead.astro";
+import BlogHeader from "../../components/BlogHeader.astro";
+import BlogPostPreview from "../../components/BlogPostPreview.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import Header from "../../components/Header.astro";
+
+// Data Fetching: List all Markdown posts in the repo.
+let allPosts = await Astro.glob("../posts/*.md");
+allPosts = allPosts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishDate).valueOf() -
+    new Date(a.frontmatter.publishDate).valueOf()
+);
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body>
+    <!-- <BlogHeader /> -->
+    <Header />
+    <div class="">
+      <main class="content py-10">
+        <section class="intro">
+          <h1 class="text-center text-3xl font-bold text-primary">
+            {SITE_TITLE}
+          </h1>
+          <p class="text-center py-4">{SITE_DESCRIPTION}</p>
+        </section>
+        <section class="max-w-5xl grid grid-cols-3 gap-10 container mx-auto">
+          {allPosts.map((p) => <BlogPostPreview post={p} />)}
+        </section>
+      </main>
+      <footer class="text-center">
+        <a href="/admin">Admin Dashboard 🔐</a>
+      </footer>
+    </div>
+  </body>
+</html>
